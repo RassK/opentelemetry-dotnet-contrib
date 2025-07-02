@@ -99,7 +99,7 @@ internal class HeartbeatService : IBackgroundService, IOpAMPListener<ConnectionS
 
     public void HandleMessage(ConnectionSettingsMessage message)
     {
-        var newInterval = message.ConnectionSettings.Opamp.HeartbeatIntervalSeconds;
+        var newInterval = message.ConnectionSettings.Opamp?.HeartbeatIntervalSeconds ?? 0;
         if (newInterval > 0)
         {
             // TODO: Debug log the new heartbeat interval
